@@ -45,18 +45,68 @@ http
 				case ("stop"):
 					client.stop();
 					break;
+					
 				case ("foreward"):
 					client.front(0.5);
 					setTimeout(function() {
 						client.stop();
 					},1000);
 					break;
+				case ("left"):
+					client.left(0.5);
+					setTimeout(function() {
+						client.stop();
+					},1000);
+					break;
+				case ("right"):
+					client.right(0.5);
+					setTimeout(function() {
+						client.stop();
+					},1000);
+					break;
+				case ("back"):
+					client.back(0.5);
+					setTimeout(function() {
+						client.stop();
+					},1000);
+					break;
+
 				case ("up"):
 					client.up(0.5);
 					setTimeout(function() {
 						client.stop();
 					},2000);
 					break;
+				case ("down"):
+					client.down(0.5);
+					setTimeout(function() {
+						client.stop();
+					},2000);
+					break;
+					
+				case ("calibrate"):
+					client.calibrate(0);
+					break;
+				case ("dis_emergency"):
+					client.disableEmergency();
+					break;
+				case ("yawDance"):
+					client.animate("yawDance", 5000);
+					break;
+					
+				case ("ccwr"):
+					client.counterClockwise(0.5);
+					setTimeout(function() {
+						client.stop();
+					},2000);
+					break;
+				case ("cwr"):
+					client.clockwise(0.5);
+					setTimeout(function() {
+						client.stop();
+					},2000);
+					break;
+					
 				case ("lights"):
 					client.animateLeds('blinkGreenRed', 5,10);
 					break;

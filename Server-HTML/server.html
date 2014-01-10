@@ -11,13 +11,32 @@
 </head>
 <body id="ar-body">
 	<h3>ar-Drone Keyboard Controls</h3>
-	<ul id='ar-commands'>
+	<ul class='ar-commands'>
 		<li>SPACE Takeoff</li>
 		<li>ENTER Land</li>
 		<li>L Lights</li>
 		<li>P STOP</li>
+	</ul>
+	<ul class='ar-commands'>
 		<li>W Forward (1 sec)</li>
+		<li>A Left (1 sec)</li>
+		<li>S Right (1 sec)</li>
+		<li>Z Back (1 sec)</li>
+	</ul>
+	<ul class='ar-commands'>
 		<li>U Up (2 sec)</li>
+		<li>D Down (2 sec)</li>
+	</ul>
+	<ul class='ar-commands'>
+		<li>` Calibrate</li>
+		<li>= Disable Emergency</li>
+	</ul>
+	<ul class='ar-commands'>
+		<li>1 Yaw Dance</li>
+	</ul>
+	<ul class='ar-commands'>
+		<li>, Counter-clockwise Rotate</li>
+		<li>. Clockwise Rotate</li>
 	</ul>
 	<div id="ar-info"></div>
 	<div id="ar-output"></div>
@@ -44,14 +63,45 @@
 				case 13: // Enter Key
 					window.location = localhost + "?land";
 					break;
+					
 				case 112: //S
 					window.location = localhost + "?stop";
 					break;
 				case 119: //W
 					window.location = localhost + "?foreward";
 					break;
+				case 97: //A
+					window.location = localhost + "?left";
+					break;
+				case 115: //S
+					window.location = localhost + "?right";
+					break;
+				case 122: //Z
+					window.location = localhost + "?back";
+					break;
+					
 				case 117: //U
 					window.location = localhost + "?up";
+					break;
+				case 100: //D
+					window.location = localhost + "?down";
+					break;
+					
+				case 96: //` Calibrate
+					window.location = localhost + "?calibrate";
+					break;
+				case 61: //= Disable Emergency
+					window.location = localhost + "?dis_emergency";
+					break;
+					
+				case 49: //1
+					window.location = localhost + "?yawDance";
+					break;
+				case 44: //, Counter-clockwise
+					window.location = localhost + "?ccwr";
+					break;
+				case 46: //. Clockwise
+					window.location = localhost + "?cwr";
 					break;
 				case 108: //L
 					window.location = localhost + "?lights";
