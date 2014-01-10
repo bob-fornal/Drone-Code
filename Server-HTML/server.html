@@ -51,64 +51,107 @@
 				$("#ar-info").text(data);
 			});
 	
-		$("#ar-body").keypress(function(event) {
-			$("#ar-output").text(event.which);
-			
-			var localhost = "http://localhost:8080";
-			$("#ar-output").text(event.which);
-			switch(event.which) {
-				case 32: // Spacebar
-					window.location = localhost + "?takeoff";
-					break;
-				case 13: // Enter Key
-					window.location = localhost + "?land";
-					break;
-					
-				case 112: //S
-					window.location = localhost + "?stop";
-					break;
-				case 119: //W
-					window.location = localhost + "?foreward";
-					break;
-				case 97: //A
-					window.location = localhost + "?left";
-					break;
-				case 115: //S
-					window.location = localhost + "?right";
-					break;
-				case 122: //Z
-					window.location = localhost + "?back";
-					break;
-					
-				case 117: //U
-					window.location = localhost + "?up";
-					break;
-				case 100: //D
-					window.location = localhost + "?down";
-					break;
-					
-				case 96: //` Calibrate
-					window.location = localhost + "?calibrate";
-					break;
-				case 61: //= Disable Emergency
-					window.location = localhost + "?dis_emergency";
-					break;
-					
-				case 49: //1
-					window.location = localhost + "?yawDance";
-					break;
-				case 44: //, Counter-clockwise
-					window.location = localhost + "?ccwr";
-					break;
-				case 46: //. Clockwise
-					window.location = localhost + "?cwr";
-					break;
-				case 108: //L
-					window.location = localhost + "?lights";
-					break;
-			}
+		$("#ar-body").keydown(function(event) {
+			$("#ar-output").text("Press: " + event.which);			
+			pressKeys(event.which);
 		});
+		
+		$("#ar-body").keyup(function(event) {
+			$("#ar-output").text("Release: " + event.which);			
+			releaseKeys(event.which);
+		});
+		
 	});
+
+	function pressKeys(key) {
+		var localhost = "http://localhost:8080";
+
+		switch(key) {
+			case 32: // Spacebar
+				window.location = localhost + "?takeoff";
+				break;
+			case 13: // Enter Key
+				window.location = localhost + "?land";
+				break;
+			case 112: //S
+				window.location = localhost + "?stop";
+				break;
+				
+			case 119: //W
+				window.location = localhost + "?foreward";
+				break;
+			case 97: //A
+				window.location = localhost + "?left";
+				break;
+			case 115: //S
+				window.location = localhost + "?right";
+				break;
+			case 122: //Z
+				window.location = localhost + "?back";
+				break;
+				
+			case 117: //U
+				window.location = localhost + "?up";
+				break;
+			case 100: //D
+				window.location = localhost + "?down";
+				break;
+				
+			case 96: //` Calibrate
+				window.location = localhost + "?calibrate";
+				break;
+			case 61: //= Disable Emergency
+				window.location = localhost + "?dis_emergency";
+				break;
+				
+			case 49: //1
+				window.location = localhost + "?yawDance";
+				break;
+			case 44: //, Counter-clockwise
+				window.location = localhost + "?ccwr";
+				break;
+			case 46: //. Clockwise
+				window.location = localhost + "?cwr";
+				break;
+			case 108: //L
+				window.location = localhost + "?lights";
+				break;
+		}
+	}
+	
+	function releaseKeys(key) {
+		var localhost = "http://localhost:8080";
+
+		switch(key) {
+			case 32: // Spacebar
+			case 13: // Enter Key
+			case 112: //S Stop
+				break;
+
+			case 119: //W Forward
+			case 97: //A Left
+			case 115: //S Right
+			case 122: //Z Back
+
+			case 117: //U Up
+			case 100: //D Down
+				window.location = localhost + "?stop";
+				break;
+				
+			case 96: //` Calibrate
+			case 61: //= Disable Emergency
+				break;
+				
+			case 49: //1 Yaw Dance
+			case 44: //, Counter-clockwise
+			case 46: //. Clockwise
+				window.location = localhost + "?stop";
+				break;
+			case 108: //L Lights
+				break;
+		}
+	}
+	
 	</script>
 </body>
 </html>
