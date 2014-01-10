@@ -13,6 +13,7 @@ var d_port = 8081;
 data
 	// Convert to a Socket.IO Server and push device content
 	//client.ReadNavdata
+	//Client.UdpNavdataStream
 	.createServer(function (req, res) {
 		//client.on('navdata', o_data);
 		res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
@@ -33,7 +34,14 @@ http
 		});
 
 		if(req.url!="/" && req.url!='/favicon.ico' && req.url!='/jquery-2.0.3.min.map') {
+			// PUT IN CONDITIONAL HANDLING FOR:
+			// - FAVICON.ICO
+			// - *.JS
+			// - *.CSS
+			// - *.PNG, *.GIF, *.JPG
+			// TO HANDLE INTERNAL PAGE LOADING
 			var command = req.url.substring(2,req.url.length);
+			// ARE THERE ADDITIONAL PARTS TO THE COMMAND (ie. & speed data)
 			console.log("... Process: " + command);
 			
 			switch(command) {

@@ -18,25 +18,25 @@
 		<li>P STOP</li>
 	</ul>
 	<ul class='ar-commands'>
-		<li>W Forward (1 sec)</li>
-		<li>A Left (1 sec)</li>
-		<li>S Right (1 sec)</li>
-		<li>Z Back (1 sec)</li>
+		<li>W Forward (hold key)</li>
+		<li>A Left (hold key)</li>
+		<li>S Right (hold key)</li>
+		<li>Z Back (hold key)</li>
 	</ul>
 	<ul class='ar-commands'>
-		<li>U Up (2 sec)</li>
-		<li>D Down (2 sec)</li>
+		<li>U or UP ARROW: Up (hold key)</li>
+		<li>D or DOWN ARROW: Down (hold key)</li>
 	</ul>
 	<ul class='ar-commands'>
-		<li>` Calibrate</li>
-		<li>= Disable Emergency</li>
+		<li>`: Calibrate</li>
+		<li>=: Disable Emergency</li>
 	</ul>
 	<ul class='ar-commands'>
-		<li>1 Yaw Dance</li>
+		<li>1: Yaw Dance (5 sec)</li>
 	</ul>
 	<ul class='ar-commands'>
-		<li>, Counter-clockwise Rotate</li>
-		<li>. Clockwise Rotate</li>
+		<li>LEFT ARROW: Counter-clockwise Rotate (hold key)</li>
+		<li>RIGHT ARROW: Clockwise Rotate (hold key)</li>
 	</ul>
 	<div id="ar-info"></div>
 	<div id="ar-output"></div>
@@ -91,9 +91,11 @@
 				window.location = localhost + "?back";
 				break;
 				
+			case 38: // UP ARROW
 			case 117: //U
 				window.location = localhost + "?up";
 				break;
+			case 40: // DOWN ARROW
 			case 100: //D
 				window.location = localhost + "?down";
 				break;
@@ -108,10 +110,10 @@
 			case 49: //1
 				window.location = localhost + "?yawDance";
 				break;
-			case 44: //, Counter-clockwise
+			case 37: //LEFT ARROW Counter-clockwise
 				window.location = localhost + "?ccwr";
 				break;
-			case 46: //. Clockwise
+			case 39: //RIGHT ARROW Clockwise
 				window.location = localhost + "?cwr";
 				break;
 			case 108: //L
@@ -134,7 +136,9 @@
 			case 115: //S Right
 			case 122: //Z Back
 
+			case 38: // UP ARROW
 			case 117: //U Up
+			case 40: // DOWN ARROW
 			case 100: //D Down
 				window.location = localhost + "?stop";
 				break;
@@ -144,8 +148,8 @@
 				break;
 				
 			case 49: //1 Yaw Dance
-			case 44: //, Counter-clockwise
-			case 46: //. Clockwise
+			case 37: //LEFT ARROW Counter-clockwise
+			case 39: //RIGHT ARROW Clockwise
 				window.location = localhost + "?stop";
 				break;
 			case 108: //L Lights
