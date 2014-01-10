@@ -11,6 +11,8 @@ var d_port = 8081;
 //var o_data = {};
 
 data
+	// Convert to a Socket.IO Server and push device content
+	//client.ReadNavdata
 	.createServer(function (req, res) {
 		//client.on('navdata', o_data);
 		res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});

@@ -44,6 +44,7 @@
 	<script>
 	var data = "123";
 	$(document).ready(function() {
+		// Convert to a Socket.IO Client and receive device content
 		$.get("http://localhost:8081")
 			.done(function(results) {
 				console.log(results.toString());
